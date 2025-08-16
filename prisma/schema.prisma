@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Subscribers {
+  id         String   @id @default(cuid())
+  licenseKey String   @unique @map("license_key")
+  username   String
+  type       String
+  txHash     String   @map("tx_hash")
+  date       DateTime @default(now())
+  expiryDate DateTime @map("expiry_date")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@map("subscribers")
+}
+
+model Videos {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  src         String
+  duration    String
+  thumbnail   String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("videos")
+}

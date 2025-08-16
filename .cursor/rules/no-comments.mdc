@@ -1,0 +1,16 @@
+---
+alwaysApply: true
+---
+
+# No Comments Rule
+
+NEVER add any comments to code. This includes:
+
+- Single line comments (`//`)
+- Multi-line comments (`/* */`)
+- JSDoc comments (`/** */`)
+- HTML comments (`<!-- -->`)
+- CSS comments (`/* */`)
+- Any form of code documentation comments
+
+Write clean, self-documenting code without any comments whatsoever.
