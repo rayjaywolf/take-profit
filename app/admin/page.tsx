@@ -162,7 +162,7 @@ export default function TakeProfitForm() {
       case "monthly":
         return "default";
       case "half-yearly":
-        return "default";
+        return "outline";
       case "lifetime":
         return "destructive";
       default:
@@ -327,7 +327,15 @@ export default function TakeProfitForm() {
                               {subscriber.username}
                             </TableCell>
                             <TableCell>
-                              <Badge variant={getTypeVariant(subscriber.type)}>
+                              <Badge
+                                variant={getTypeVariant(subscriber.type)}
+                                className={
+                                  subscriber.type.toLowerCase() ===
+                                  "half-yearly"
+                                    ? "bg-green-100 text-green-800 border-green-200 hover:bg-green-200"
+                                    : ""
+                                }
+                              >
                                 {subscriber.type}
                               </Badge>
                             </TableCell>
