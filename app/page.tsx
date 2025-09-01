@@ -137,7 +137,7 @@ export default function CourseDashboard() {
               {videos.map((video, index) => (
                 <Card
                   key={video.id}
-                  className={`cursor-pointer transition-all hover:shadow-md py-2 ${
+                  className={`cursor-pointer transition-all hover:shadow-md py-0 ${
                     selectedVideo?.id === video.id
                       ? "ring-2 ring-primary bg-primary/5"
                       : ""
@@ -145,7 +145,7 @@ export default function CourseDashboard() {
                   onClick={() => handleVideoSelect(video)}
                 >
                   <CardContent className="p-3">
-                    <div className="flex items-start gap-3">
+                    <div className="flex items-center gap-4">
                       <div className="relative flex-shrink-0">
                         <img
                           src={
@@ -153,7 +153,7 @@ export default function CourseDashboard() {
                             "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=300&h=200&fit=crop"
                           }
                           alt={video.title}
-                          className="w-16 h-12 object-cover rounded-md"
+                          className="w-16 h-14 object-cover rounded-md"
                         />
                       </div>
                       <div className="flex-1 min-w-0">

@@ -161,6 +161,8 @@ export default function TakeProfitForm() {
         return "secondary";
       case "monthly":
         return "default";
+      case "half-yearly":
+        return "default";
       case "lifetime":
         return "destructive";
       default:
@@ -228,6 +230,9 @@ export default function TakeProfitForm() {
                         <SelectItem value="trial">Trial (7 days)</SelectItem>
                         <SelectItem value="monthly">
                           Monthly (30 days)
+                        </SelectItem>
+                        <SelectItem value="half-yearly">
+                          Half-Yearly (6 months)
                         </SelectItem>
                         <SelectItem value="lifetime">Lifetime</SelectItem>
                       </SelectContent>

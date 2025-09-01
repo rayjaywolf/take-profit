@@ -48,6 +48,11 @@ export async function POST(request: NextRequest) {
           monthlyExpiry.setMonth(now.getMonth() + 1);
           return monthlyExpiry;
         
+        case "half-yearly":
+          const halfYearlyExpiry = new Date(now);
+          halfYearlyExpiry.setMonth(now.getMonth() + 6);
+          return halfYearlyExpiry;
+        
         case "lifetime":
           const lifetimeExpiry = new Date(now);
           lifetimeExpiry.setFullYear(now.getFullYear() + 100);
