@@ -35,11 +35,15 @@ export function Header({ user }: { user: HeaderUser }) {
   return (
     <header className="w-full border-b">
       <div className="mx-auto flex h-14 w-full max-w-full items-center justify-between px-4">
-        <Link
-          href="/"
-          className="font-semibold tracking-tight text-sm sm:text-base"
-        >
-          Take Profit
+        <Link href="/" className="flex items-center gap-2">
+          <img
+            src="/logo.png"
+            alt="Take Profit Logo"
+            className="h-7 w-auto rounded-full"
+          />
+          <span className="font-semibold tracking-tight text-sm sm:text-base">
+            Take Profit
+          </span>
         </Link>
         <div className="flex items-center gap-2 sm:gap-3">
           {user ? (

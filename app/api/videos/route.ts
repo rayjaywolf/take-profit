@@ -5,7 +5,7 @@ export async function GET() {
   try {
     const videos = await prisma.videos.findMany({
       orderBy: {
-        createdAt: 'desc'
+        createdAt: 'asc'
       }
     });
 

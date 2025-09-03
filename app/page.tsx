@@ -68,7 +68,7 @@ export default function CourseDashboard() {
             <div className="p-4 border-b">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-lg font-bold">Take Profit Course</h1>
+                  <h1 className="text-lg font-bold">Past Discord VC's</h1>
                   <p className="text-xs text-muted-foreground">
                     Master the art of trading
                   </p>
@@ -123,7 +123,7 @@ export default function CourseDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-lg sm:text-xl font-bold">
-                  Take Profit Course
+                  Past Discord VC's
                 </h1>
                 <p className="text-xs sm:text-sm text-muted-foreground">
                   Master the art of trading
@@ -223,10 +223,40 @@ export default function CourseDashboard() {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <Button variant="outline" size="sm">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        const currentIndex = videos.findIndex(
+                          (v) => v.id === selectedVideo.id
+                        );
+                        if (currentIndex > 0) {
+                          handleVideoSelect(videos[currentIndex - 1]);
+                        }
+                      }}
+                      disabled={
+                        videos.findIndex((v) => v.id === selectedVideo.id) === 0
+                      }
+                    >
                       Previous
                     </Button>
-                    <Button size="sm">Next</Button>
+                    <Button
+                      size="sm"
+                      onClick={() => {
+                        const currentIndex = videos.findIndex(
+                          (v) => v.id === selectedVideo.id
+                        );
+                        if (currentIndex < videos.length - 1) {
+                          handleVideoSelect(videos[currentIndex + 1]);
+                        }
+                      }}
+                      disabled={
+                        videos.findIndex((v) => v.id === selectedVideo.id) ===
+                        videos.length - 1
+                      }
+                    >
+                      Next
+                    </Button>
                   </div>
                 </div>
 
