@@ -69,11 +69,11 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         <Card className="border-2 shadow-lg">
           <CardHeader className="text-center space-y-4">
-            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-              <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
-                <div className="w-4 h-4 bg-primary rounded-full"></div>
-              </div>
-            </div>
+            <img
+              src="/logo.png"
+              alt="Take Profit Logo"
+              className="mx-auto w-16 h-16 rounded-full shadow-lg"
+            />
             <div className="space-y-2">
               <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 Welcome Back

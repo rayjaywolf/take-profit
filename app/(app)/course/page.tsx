@@ -82,7 +82,7 @@ export default function CourseDashboard() {
                     key={video.id}
                     className={`cursor-pointer transition-all hover:shadow-md py-2 ${
                       selectedVideo?.id === video.id
-                        ? "ring-2 ring-primary bg-primary/5"
+                        ? "ring-1 ring-primary bg-primary/5"
                         : ""
                     }`}
                     onClick={() => handleVideoSelect(video)}
@@ -139,7 +139,7 @@ export default function CourseDashboard() {
                   key={video.id}
                   className={`cursor-pointer transition-all hover:shadow-md py-0 ${
                     selectedVideo?.id === video.id
-                      ? "ring-2 ring-primary bg-primary/5"
+                      ? "ring-1 ring-primary bg-primary/5"
                       : ""
                   }`}
                   onClick={() => handleVideoSelect(video)}

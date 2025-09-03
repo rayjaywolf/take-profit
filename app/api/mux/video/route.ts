@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
 
     const auth = Buffer.from(`${muxTokenId}:${muxTokenSecret}`).toString('base64');
 
-    // First, try to get the asset via playback ID (since most URLs contain playback IDs)
+
     let response = await fetch(`https://api.mux.com/video/v1/playback-ids/${assetId}`, {
       headers: {
         'Authorization': `Basic ${auth}`,
@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
       const actualAssetId = playbackData.data.object.id;
       console.log('Extracted Asset ID:', actualAssetId);
       
-      // Now fetch the asset data
+
       response = await fetch(`https://api.mux.com/video/v1/assets/${actualAssetId}`, {
         headers: {
           'Authorization': `Basic ${auth}`,
@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
         },
       });
     } else {
-      // If playback ID fails, try as asset ID directly
+
       response = await fetch(`https://api.mux.com/video/v1/assets/${assetId}`, {
         headers: {
           'Authorization': `Basic ${auth}`,
