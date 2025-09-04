@@ -54,22 +54,25 @@ export default function CourseDashboard() {
   };
 
   return (
-    <div className="h-[calc(100vh-60px)] bg-background">
+    <div className="h-[calc(100vh-60px)] bg-[#0b0f19] text-white">
       <div className="flex h-full flex-col sm:flex-row">
         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-          <div className="sm:hidden p-2 border-b">
+          <div className="sm:hidden p-2 border-b border-white/10">
             <SheetTrigger asChild>
               <Button size="sm" variant="outline">
                 Browse Videos
               </Button>
             </SheetTrigger>
           </div>
-          <SheetContent side="left" className="p-0 w-80">
-            <div className="p-4 border-b">
+          <SheetContent
+            side="left"
+            className="p-0 w-80 bg-[#0d121c] text-white border-r-0"
+          >
+            <div className="p-4 border-b border-white/10">
               <div className="flex items-center justify-between">
                 <div>
                   <h1 className="text-lg font-bold">Past Discord VC's</h1>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-white/50">
                     Master the art of trading
                   </p>
                 </div>
@@ -80,10 +83,10 @@ export default function CourseDashboard() {
                 {videos.map((video, index) => (
                   <Card
                     key={video.id}
-                    className={`cursor-pointer transition-all hover:shadow-md py-2 ${
+                    className={`cursor-pointer transition-all hover:bg-[#1a202e] border-none ${
                       selectedVideo?.id === video.id
-                        ? "ring-1 ring-primary bg-primary/5"
-                        : ""
+                        ? "ring-1 ring-[#93C5FD] bg-[#93C5FD20]"
+                        : "bg-[#121723]"
                     }`}
                     onClick={() => handleVideoSelect(video)}
                   >
@@ -104,8 +107,8 @@ export default function CourseDashboard() {
                             {index + 1}. {video.title}
                           </h3>
                           <div className="flex items-center gap-2 mt-1">
-                            <Clock className="w-3 h-3 text-muted-foreground" />
-                            <span className="text-xs text-muted-foreground">
+                            <Clock className="w-3 h-3 text-white/50" />
+                            <span className="text-xs text-white/50">
                               {video.duration}
                             </span>
                           </div>
@@ -118,14 +121,14 @@ export default function CourseDashboard() {
             </ScrollArea>
           </SheetContent>
         </Sheet>
-        <div className="hidden sm:flex sm:w-80 sm:border-r bg-muted/30 flex-col min-h-0">
-          <div className="p-4 border-b">
+        <div className="hidden sm:flex sm:w-80 sm:border-r border-white/10 bg-[#0d121c] flex-col min-h-0">
+          <div className="p-4 border-b border-white/10">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-lg sm:text-xl font-bold">
                   Past Discord VC's
                 </h1>
-                <p className="text-xs sm:text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm text-white/50">
                   Master the art of trading
                 </p>
               </div>
@@ -137,10 +140,10 @@ export default function CourseDashboard() {
               {videos.map((video, index) => (
                 <Card
                   key={video.id}
-                  className={`cursor-pointer transition-all hover:shadow-md py-0 ${
+                  className={`cursor-pointer transition-all hover:bg-[#1a202e] border-none ${
                     selectedVideo?.id === video.id
-                      ? "ring-1 ring-primary bg-primary/5"
-                      : ""
+                      ? "ring-1 ring-[#93C5FD] bg-[#93C5FD20]"
+                      : "bg-[#121723]"
                   }`}
                   onClick={() => handleVideoSelect(video)}
                 >
@@ -161,8 +164,8 @@ export default function CourseDashboard() {
                           {index + 1}. {video.title}
                         </h3>
                         <div className="flex items-center gap-2 mt-1">
-                          <Clock className="w-3 h-3 text-muted-foreground" />
-                          <span className="text-xs text-muted-foreground">
+                          <Clock className="w-3 h-3 text-white/50" />
+                          <span className="text-xs text-white/50">
                             {video.duration}
                           </span>
                         </div>
@@ -174,21 +177,21 @@ export default function CourseDashboard() {
             </div>
           </ScrollArea>
         </div>
-        <div className="flex-1 flex flex-col min-h-0">
-          <div className="flex-1 bg-black min-h-0">
+        <div className="flex-1 flex flex-col min-h-0 bg-[#0b0f19]">
+          <div className="flex-1 bg-[#0b0f19] min-h-0">
             <div className="relative h-full flex items-center justify-center">
               {!selectedVideo ? (
-                <div className="text-center text-white px-4">
-                  <Play className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 text-gray-400" />
+                <div className="text-center text-white/50 px-4">
+                  <Play className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 text-white/50" />
                   <h2 className="text-xl sm:text-2xl font-bold mb-2">
                     Select a Video
                   </h2>
-                  <p className="text-gray-400">
+                  <p className="text-white/50">
                     Choose a video from the sidebar to start watching
                   </p>
                 </div>
               ) : (
-                <div className="w-full h-full">
+                <div className="w-full h-full p-8">
                   <iframe
                     src={selectedVideo.src}
                     style={{
@@ -205,14 +208,14 @@ export default function CourseDashboard() {
             </div>
           </div>
           {selectedVideo && (
-            <div className="p-6 border-t">
+            <div className="p-6 border-t border-white/10 bg-[#0d121c]">
               <div className="max-w-full">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h1 className="text-xl sm:text-2xl font-bold mb-2">
                       {selectedVideo.title}
                     </h1>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4 text-sm text-white/50">
                       <span>Duration: {selectedVideo.duration}</span>
                       <span>•</span>
                       <span>
@@ -264,19 +267,10 @@ export default function CourseDashboard() {
 
                 <div>
                   <h3 className="font-semibold mb-2">Description</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-white/50 leading-relaxed">
                     {selectedVideo.description}
                   </p>
                 </div>
-
-                {/* <div className="mt-6 flex items-center gap-4">
-                  <Button className="flex items-center gap-2">
-                    <Play className="w-4 h-4" />
-                    Start Learning
-                  </Button>
-                  <Button variant="outline">Add to Favorites</Button>
-                  <Button variant="outline">Download Notes</Button>
-                </div> */}
               </div>
             </div>
           )}

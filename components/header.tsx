@@ -33,7 +33,7 @@ export function Header({ user }: { user: HeaderUser }) {
   };
 
   return (
-    <header className="w-full border-b">
+    <header className="w-full border-b bg-[#090D14]">
       <div className="mx-auto flex h-14 w-full max-w-full items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
           <img
