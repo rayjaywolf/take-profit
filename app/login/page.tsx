@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -65,14 +66,23 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-6">
-      <div className="w-full max-w-md">
-        <Card className="border-2 shadow-lg">
+    <div className="min-h-screen bg-background flex items-center justify-center p-6 relative">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/background.png')",
+        }}
+      />
+      <div className="w-full max-w-md relative z-10 ">
+        <Card className="border-2 shadow-lg bg-[#101B2C] border-[#202B3C]">
           <CardHeader className="text-center space-y-4">
-            <img
+            <Image
               src="/logo.png"
               alt="Take Profit Logo"
+              width={64}
+              height={64}
               className="mx-auto w-16 h-16 rounded-full shadow-lg"
+              priority
             />
             <div className="space-y-2">
               <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
