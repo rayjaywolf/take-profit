@@ -83,7 +83,7 @@ export default function CourseDashboard() {
                 {videos.map((video, index) => (
                   <Card
                     key={video.id}
-                    className={`cursor-pointer transition-all hover:bg-[#1a202e] border-none ${
+                    className={`cursor-pointer transition-all  hover:bg-[#1a202e] border-none ${
                       selectedVideo?.id === video.id
                         ? "ring-1 ring-[#93C5FD] bg-[#93C5FD20]"
                         : "bg-[#121723]"
